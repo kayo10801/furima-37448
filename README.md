@@ -20,37 +20,31 @@
 - has_many :purchase_records
 - has_one :orders
 
+
 ## items テーブル
 
-| Column        |Type        | Options                        |
-| ------------- |----------  | ----------- | ---------------- |
-| name          | string     | null: false                    |
-| introduction  | text       | null: false                    |
-| condition     | string     | null: false                    |
-| category      | string     | null: false                    |
-| price         | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| postage       | string     | null: false                    |
-| shipping_area | string     | null: false                    |
-| days_to_ship  | string     | null: false                    | 
-| commission    | string     | null: false                    |
-| profit        | string     | null: false                    |
+| Column           |Type        | Options                        |
+| -------------    |----------  | ----------- | ---------------- |
+| name             | string     | null: false                    |
+| introduction     | text       | null: false                    |
+| condition_id     | integer    | null: false                    |
+| category_id      | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| postage_id       | integer    | null: false                    |
+| prefecture_id 　　| integer    | null: false                    |
+| days_to_ship_id  | integer    | null: false                    | 
 
 
 ### Association
 - belongs_to :user
-- has_many :images
-- has_one :purchase_records
+- has_one :purchase_record
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :postage
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :days_to_ship
 
-## images テーブル
-
-| Column        |Type        | Options                        |
-| ------------- |----------  | ----------- | ---------------- |
-| item          | references | null: false, foreign_key: true |   
-
-
-### Association
-- bolongs_to :item
 
 ## purchase_records テーブル
 
@@ -65,7 +59,8 @@
 - belongs_to :item
 - has_one :shipping_address
 
-## shipping_address テーブル
+
+## shipping_addresses テーブル
 
 | Column           |Type        | Options                        |
 | ---------------  |----------  | ----------- | ---------------- |
@@ -73,19 +68,11 @@
 | prefecture       | string     | null: false                    | 
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
-| building_name    | string     | null: false                    |
+| building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| purchase_records | references | null: false, foreign_key: true |
+| purchase_record  | references | null: false, foreign_key: true  |
 
 
 ### Association
 - belongs_to :purchase_record
-
-## orders テーブル
-
-| Column           |Type        | Options                        |
-| ---------------  |----------  | ----------- | ---------------- |
-| price            | integer    | null; false |                  |
-
-### Association
-- belongs_to :user
+- has_one_active_hash :prefecture
