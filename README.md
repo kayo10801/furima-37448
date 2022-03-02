@@ -18,7 +18,6 @@
 ### Association
 - has_many :items   
 - has_many :purchase_records
-- has_one :orders
 
 
 ## items テーブル
@@ -39,11 +38,7 @@
 ### Association
 - belongs_to :user
 - has_one :purchase_record
-- belongs_to_active_hash :category
-- belongs_to_active_hash :condition
-- belongs_to_active_hash :postage
-- belongs_to_active_hash :prefecture
-- belongs_to_active_hash :days_to_ship
+
 
 
 ## purchase_records テーブル
@@ -65,7 +60,7 @@
 | Column           |Type        | Options                        |
 | ---------------  |----------  | ----------- | ---------------- |
 | post_cord        | string     | null: false                    | 
-| prefecture       | string     | null: false                    | 
+| prefecture_id      | string     | null: false                    | 
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
@@ -75,4 +70,3 @@
 
 ### Association
 - belongs_to :purchase_record
-- has_one_active_hash :prefecture

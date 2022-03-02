@@ -19,7 +19,7 @@
                 <mxCell id="44" value="shipping_addresses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="781" y="858" width="418" height="198" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="postcord(istring / null: false)&#10;prefecture(string / null: false)&#10;city(string / null: false)&#10;address (string / null: false)&#10;building_name(string / null: false)&#10;phone_number(string / null: false)&#10;purchase_records (references / null: false / foreign_key: true)&#10;&#10;&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="44" vertex="1">
+                <mxCell id="45" value="postcord(istring / null: false)&#10;prefecture_id(string / null: false)&#10;city(string / null: false)&#10;address (string / null: false)&#10;building_name(string / null: false)&#10;phone_number(string / null: false)&#10;purchase_records (references / null: false / foreign_key: true)&#10;&#10;&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="44" vertex="1">
                     <mxGeometry y="30" width="418" height="168" as="geometry"/>
                 </mxCell>
                 <mxCell id="150" value="purchase_records" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
