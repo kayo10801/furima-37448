@@ -20,7 +20,7 @@
       <%# <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" </li> %>
     <% if user_signed_in? %>
      <ul class='lists-right'>
-       <li><%= link_to "#{current_user.nickname}", user_path, class: "user-nickname" %></li> 
+       <li><%= link_to "#{current_user.nickname}", root_path, class: "user-nickname" %></li> 
        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
       </ul>   
      <% else %>
