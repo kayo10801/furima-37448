@@ -8,6 +8,7 @@ class FurimasController < ApplicationController
   end  
 
   def create
+  
+    
   end
-
 end
