@@ -3,12 +3,12 @@ FactoryBot.define do
     nickname              {Faker::Name.initials(number: 2)}
     email                 {Faker::Internet.free_email}
     password              {'abcd1234'}
-    password_confirmation {password}
+    password_confirmation {'password'}
     last_name             {'全角'}
     first_name            {'全角'}
     last_name_kana        {'カナ'}
     first_name_kana       {'カナ'}
-    birth_day             {Faker::Date.birthday(min_age: 18, max_age: 65)}
+    birth_date             {Faker::Date.birthday(min_age: 18, max_age: 65)}
     
   end
 end

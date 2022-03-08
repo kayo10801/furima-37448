@@ -11,6 +11,7 @@ class FurimasController < ApplicationController
   end
 
   def create
+    
     @furima = Furima.new(furima_params)
     if @furima.save
       redirect_to root_path
@@ -22,7 +23,7 @@ class FurimasController < ApplicationController
   private
 
   def furima_params
-    params.require(:furima).permit(:image, :name, :introduction, :category_id, :condition_id, :postage_id, :prefecture_id, :days_to_ship_id, :price)
+    params.require(:furima).permit(:image, :name, :introduction, :category_id, :condition_id, :postage_id, :prefecture_id, :days_to_ship_id, :price).merge(user_id: current_user.id)
   end
 
 
