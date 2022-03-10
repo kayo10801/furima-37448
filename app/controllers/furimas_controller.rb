@@ -20,7 +20,7 @@ class FurimasController < ApplicationController
     else
       render :new
     end
-
+  end
 
   # def destroy
   #   @furima = Furima.find(params[:id]
