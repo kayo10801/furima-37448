@@ -20,15 +20,22 @@ class FurimasController < ApplicationController
     else
       render :new
     end
+
+
+  # def destroy
+  #   @furima = Furima.find(params[:id]
+  # end
+  
+
+
+  def edit
+    @furima = Furima.find(params[:id])
   end
 
-  # def edit
-  #   @furima = Furima.find(params[:id])
-  # end
 
     
    def show
-  #   @furima = Furima.find(params[:id])
+     @furima = Furima.find(params[:id])
    end
 
   private

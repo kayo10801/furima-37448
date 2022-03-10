@@ -20,5 +20,5 @@ class User < ApplicationRecord
   end
 
   has_many :furimas  
- # has_many :purchase_records
+  #has_many :purchase_records
 end
