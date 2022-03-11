@@ -12,7 +12,6 @@ class FurimasController < ApplicationController
   end
 
   def create
-    
     @furima = Furima.new(furima_params)
     if @furima.save
       
@@ -22,16 +21,27 @@ class FurimasController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @furima = Furima.find(params[:id]
-  # end
+  def destroy
+    @furima = Furima.find(params[:id])
+  end
   
 
 
   def edit
     @furima = Furima.find(params[:id])
+    unless @furima.user_id == current_user.id
+    redirect_to root_path
+    end
   end
-
+  
+  def update
+    @furima = Furima.find(params[:id])
+    if @furima.update(furima_params)
+       redirect_to furima_path(@furima)
+    else
+       render  :edit
+    end
+  end
 
     
    def show
