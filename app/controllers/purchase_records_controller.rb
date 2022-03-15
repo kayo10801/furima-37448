@@ -41,7 +41,7 @@ class PurchaseRecordsController < ApplicationController
   end 
 
   def moov
-   @furima = Furima.find(params[:furima_id])
+   
     if @furima.user_id != current_user.id || @furima.purchase_record != nil
       redirect_to root_path
     end
