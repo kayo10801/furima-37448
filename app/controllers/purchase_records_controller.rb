@@ -1,5 +1,5 @@
 class PurchaseRecordsController < ApplicationController
-  before_action :authenticate_user!, [:show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_furima, only: [:index, :create]
   before_action :moov, only: [:index, :create]
 
