@@ -5,9 +5,8 @@ class Furima < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :days_to_ship
-
   belongs_to :user
-  #has_one :purchase_record
+  has_one :purchase_record
   has_one_attached :image
   
   with_options presence: true do

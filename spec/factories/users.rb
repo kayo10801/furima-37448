@@ -3,7 +3,7 @@ FactoryBot.define do
     nickname              {Faker::Name.initials(number: 2)}
     email                 {Faker::Internet.free_email}
     password              {'abcd1234'}
-    password_confirmation {'password'}
+    password_confirmation {'abcd1234'}
     last_name             {'全角'}
     first_name            {'全角'}
     last_name_kana        {'カナ'}

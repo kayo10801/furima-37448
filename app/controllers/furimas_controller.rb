@@ -2,6 +2,8 @@ class FurimasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_furima, except: [:index, :new, :create]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  before_action :moov, only:[:edit, :update, :destroy]
+
 
   def index
     @furimas = Furima.includes(:user).order("created_at DESC")
@@ -57,4 +59,10 @@ class FurimasController < ApplicationController
     redirect_to root_path unless current_user == @furima.user
   end
 
+  def moov
+     @furima = Furima.find(params[:furima_id])
+    if @furima.user_id != current_user.id || @furima.purchase_record != nil
+      redirect_to root_path
+    end
+  end
 end
