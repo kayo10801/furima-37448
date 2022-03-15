@@ -54,6 +54,16 @@ RSpec.describe PurchaseRecordShippingAddress, type: :model do
         @purchase_record_shipping_address.valid?
         expect(@purchase_record_shipping_address.errors.full_messages).to include "Phone number is invalid. Input only number"
       end
+      it 'phone_numberは12桁以上だと購入できない' do
+        @purchase_record_shipping_address.phone_number = '000011112222333'
+        @purchase_record_shipping_address.valid?
+        expect(@purchase_record_shipping_address.errors.full_messages).to include "Phone number is invalid. Input only number"
+      end
+      it 'phone_numberは全角数字だと購入できない' do
+        @purchase_record_shipping_address.phone_number = '０００１１１１２２２２'
+        @purchase_record_shipping_address.valid?
+        expect(@purchase_record_shipping_address.errors.full_messages).to include "Phone number is invalid. Input only number"
+      end
       it 'prefecture_idが空では購入できない' do
         @purchase_record_shipping_address.prefecture_id = '1'
         @purchase_record_shipping_address.valid?

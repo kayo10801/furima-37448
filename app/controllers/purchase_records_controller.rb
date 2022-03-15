@@ -1,17 +1,15 @@
 class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :moov, only: [:index, :create]
+  before_action :set_furima, only: [:index, :create]
+
   def index
-    @furima = Furima.find(params[:furima_id])
     @purchase_record_shipping_address = PurchaseRecordShippingAddress.new
    
   end
 
   def create
-   
-    @furima = Furima.find(params[:furima_id])
     @purchase_record_shipping_address = PurchaseRecordShippingAddress.new(purchase_record_params)
- 
     if @purchase_record_shipping_address.valid?
        pay_item
        @purchase_record_shipping_address.save
@@ -37,7 +35,10 @@ class PurchaseRecordsController < ApplicationController
       currency: 'jpy'                
     )
   end
- 
+
+  def set_furima
+    @furima = Furima.find(params[:id])
+  end 
 
   def moov
       @furima = Furima.find(params[:furima_id])
@@ -45,5 +46,4 @@ class PurchaseRecordsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
