@@ -41,7 +41,6 @@ class PurchaseRecordsController < ApplicationController
   end 
 
   def moov
-   
     if @furima.user_id != current_user.id || @furima.purchase_record != nil
       redirect_to root_path
     end
