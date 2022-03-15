@@ -9,11 +9,11 @@
     <div class="item-img-content">
       <%= image_tag @furima.image, class:"item-box-img" %>
       
-    <%# if furima.purchase_record.present? %>
+    <% if @furima.purchase_record.present? %>
       <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
-     <%# end %> 
+     <% end %> 
      
     </div>
     <div class="item-price-box">
@@ -24,13 +24,13 @@
         <%= @furima.postage.name %>
       </span>
     </div>
-   <% if user_signed_in? %>
+  <% if user_signed_in? && @furima.purchase_record == nil %>
      <% if current_user == @furima.user %>
       <%= link_to "商品の編集", edit_furima_path(@furima), class: "item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", furima_path(@furima), method: :delete, class:"item-destroy" %>
      <% else %>
-      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+      <%= link_to "購入画面に進む", furima_purchase_records_path(@furima), class:"item-red-btn"%>
      <% end %>
    <% end %>
     <div class="item-explain-box">
