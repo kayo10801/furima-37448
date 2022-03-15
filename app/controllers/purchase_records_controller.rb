@@ -1,6 +1,6 @@
 class PurchaseRecordsController < ApplicationController
-  before_action :authenticate_user!, except: :show
-  before_action :set_furima, only: [:index, :create,]
+  before_action :authenticate_user!, [:show]
+  before_action :set_furima, only: [:index, :create]
   before_action :moov, only: [:index, :create]
 
   def index
@@ -40,8 +40,9 @@ class PurchaseRecordsController < ApplicationController
     @furima = Furima.find(params[:furima_id])
   end 
 
+ 
   def moov
-    if @furima.user_id != current_user.id || @furima.purchase_record != nil
+    if @furima.user_id == current_user.id || @furima.purchase_record != nil
       redirect_to root_path
     end
   end
