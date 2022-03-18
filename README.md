@@ -44,7 +44,7 @@
 ## purchase_records テーブル
 
 | Column        |Type        | Options                        |
-| ------------- |----------  | ----------- | ---------------- |
+| ------------- |----------  | ------------------------------ |
 | item          | references | null: false, foreign_key: true |   
 | user          | references | null: false, foreign_key: true |  
 
@@ -58,7 +58,7 @@
 ## shipping_addresses テーブル
 
 | Column           |Type        | Options                        |
-| ---------------  |----------  | ----------- | ---------------- |
+| ---------------  |----------  | ------------------------------ |
 | post_cord        | string     | null: false                    | 
 | prefecture_id    | integer    | null: false                    | 
 | city             | string     | null: false                    |
