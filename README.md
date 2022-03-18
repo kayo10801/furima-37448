@@ -23,7 +23,7 @@
 ## items テーブル
 
 | Column           |Type        | Options                        |
-| -------------    |----------  | ----------- | ---------------- |
+| -------------    |----------  | ------------------------------ |
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
 | condition_id     | integer    | null: false                    |
